@@ -47,4 +47,20 @@ const largestProductOfThree = function (arr) {
   };
 
   console.log(largestProductOfThree([-1, 2, -5, 7]))
+
+// 
+//  1*2 (*3 *4 *5 ...)  i < n-2
+//  1*3                   j =  < n-1
+//  1*4                   k < n
   
+let result = []
+
+for(i=0; i<arr.length-2; i++){
+    for(j=i+1; j<arr.length-1; j++){
+        for(k=j+1; k<arr.length; k++){
+            result.push(arr[i]*arr[j]*arr[k]) 
+        }
+    }
+}
+
+return result.sort((a,b)=> b-a)[0]
